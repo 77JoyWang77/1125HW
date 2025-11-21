@@ -10,3 +10,5 @@ python-dotenv
 requests
 sentence-transformers
 huggingface-hub
+fastapi
+aiofiles
