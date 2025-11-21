@@ -1,6 +1,5 @@
 import aiofiles
 from typing import Annotated
-from typing_extensions import TypedDict
 
 import uvicorn
 from fastapi import FastAPI, File, Form, UploadFile
@@ -9,15 +8,6 @@ from rag_pdf_groq import PDFRAGSystem
 from react_weather_groq import WeatherAgent
 
 from fastapi.middleware.cors import CORSMiddleware
-
-
-class UserRequest(TypedDict):
-    query: str
-    files: list[UploadFile] | None
-
-
-class ModelResponse(TypedDict):
-    answer: str
 
 
 app = FastAPI()
@@ -45,8 +35,6 @@ async def ai_query(
     query: Annotated[str, Form()],
     files: Annotated[list[UploadFile] | None, File()] = None,
 ):
-    print(query)
-    print(files)
     if query.startswith("mode=rag"):  # rag
         query = query.lstrip("mode=rag")
         if files:  # rag 初始化
