@@ -1,0 +1,12 @@
+langchain
+langchain-core
+langchain-community
+langchain-groq
+langchain-huggingface
+langgraph
+chromadb
+pypdf
+python-dotenv
+requests
+sentence-transformers
+huggingface-hub
